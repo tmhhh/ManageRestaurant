@@ -31,21 +31,34 @@ namespace ResManage.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.foodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.flpnMain = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxCat = new System.Windows.Forms.ComboBox();
+            this.comboBoxFoodByCatID = new System.Windows.Forms.ComboBox();
+            this.frpnOrder = new System.Windows.Forms.Panel();
+            this.OrderBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.quantitySelect = new System.Windows.Forms.NumericUpDown();
+            this.frpnBill = new System.Windows.Forms.Panel();
+            this.lsvBill = new System.Windows.Forms.ListView();
+            this.clFoodName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clFooDQuan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clUnitPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSTB = new System.Windows.Forms.Button();
+            this.cbSTB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.staffCheckInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arrangeScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.discountNumer = new System.Windows.Forms.NumericUpDown();
+            this.payBtn = new System.Windows.Forms.Button();
+            this.textBoxTotal = new System.Windows.Forms.TextBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.BackBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.frpnOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.quantitySelect)).BeginInit();
+            this.frpnBill.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.discountNumer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -54,152 +67,312 @@ namespace ResManage.Forms
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.foodToolStripMenuItem,
-            this.manageToolStripMenuItem,
-            this.scheduleToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(669, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // foodToolStripMenuItem
-            // 
-            this.foodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addFoodToolStripMenuItem,
-            this.editDeleteToolStripMenuItem});
-            this.foodToolStripMenuItem.Name = "foodToolStripMenuItem";
-            this.foodToolStripMenuItem.Size = new System.Drawing.Size(46, 22);
-            this.foodToolStripMenuItem.Text = "Food";
-            // 
-            // addFoodToolStripMenuItem
-            // 
-            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.addFoodToolStripMenuItem.Text = "Add Food";
-            // 
-            // editDeleteToolStripMenuItem
-            // 
-            this.editDeleteToolStripMenuItem.Name = "editDeleteToolStripMenuItem";
-            this.editDeleteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.editDeleteToolStripMenuItem.Text = "Edit/Delete";
-            // 
-            // manageToolStripMenuItem
-            // 
-            this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.staffCheckInToolStripMenuItem});
-            this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(65, 22);
-            this.manageToolStripMenuItem.Text = "Check In";
-            // 
             // flpnMain
             // 
-            this.flpnMain.Location = new System.Drawing.Point(0, 48);
+            this.flpnMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpnMain.Location = new System.Drawing.Point(10, 116);
             this.flpnMain.Name = "flpnMain";
-            this.flpnMain.Size = new System.Drawing.Size(398, 353);
+            this.flpnMain.Size = new System.Drawing.Size(471, 565);
             this.flpnMain.TabIndex = 9;
             // 
-            // button1
+            // comboBoxCat
             // 
-            this.button1.Location = new System.Drawing.Point(428, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.comboBoxCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCat.FormattingEnabled = true;
+            this.comboBoxCat.Location = new System.Drawing.Point(3, 11);
+            this.comboBoxCat.Name = "comboBoxCat";
+            this.comboBoxCat.Size = new System.Drawing.Size(165, 25);
+            this.comboBoxCat.TabIndex = 12;
+            this.comboBoxCat.SelectedIndexChanged += new System.EventHandler(this.comboBoxCat_SelectedIndexChanged);
+            // 
+            // comboBoxFoodByCatID
+            // 
+            this.comboBoxFoodByCatID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFoodByCatID.FormattingEnabled = true;
+            this.comboBoxFoodByCatID.Location = new System.Drawing.Point(3, 49);
+            this.comboBoxFoodByCatID.Name = "comboBoxFoodByCatID";
+            this.comboBoxFoodByCatID.Size = new System.Drawing.Size(165, 25);
+            this.comboBoxFoodByCatID.TabIndex = 13;
+            // 
+            // frpnOrder
+            // 
+            this.frpnOrder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frpnOrder.Controls.Add(this.OrderBtn);
+            this.frpnOrder.Controls.Add(this.quantitySelect);
+            this.frpnOrder.Controls.Add(this.comboBoxCat);
+            this.frpnOrder.Controls.Add(this.comboBoxFoodByCatID);
+            this.frpnOrder.Location = new System.Drawing.Point(486, 116);
+            this.frpnOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.frpnOrder.Name = "frpnOrder";
+            this.frpnOrder.Size = new System.Drawing.Size(344, 84);
+            this.frpnOrder.TabIndex = 15;
+            // 
+            // OrderBtn
+            // 
+            this.OrderBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.OrderBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.OrderBtn.ButtonColor = System.Drawing.Color.Tomato;
+            this.OrderBtn.FlatAppearance.BorderSize = 0;
+            this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderBtn.Location = new System.Drawing.Point(170, 22);
+            this.OrderBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OrderBtn.Name = "OrderBtn";
+            this.OrderBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.OrderBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.OrderBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.OrderBtn.Size = new System.Drawing.Size(87, 42);
+            this.OrderBtn.TabIndex = 16;
+            this.OrderBtn.Text = "Order";
+            this.OrderBtn.TextColor = System.Drawing.Color.White;
+            this.OrderBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OrderBtn.UseVisualStyleBackColor = true;
+            this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
+            // 
+            // quantitySelect
+            // 
+            this.quantitySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantitySelect.Location = new System.Drawing.Point(262, 36);
+            this.quantitySelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quantitySelect.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.quantitySelect.Name = "quantitySelect";
+            this.quantitySelect.Size = new System.Drawing.Size(46, 21);
+            this.quantitySelect.TabIndex = 15;
+            this.quantitySelect.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // frpnBill
+            // 
+            this.frpnBill.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.frpnBill.Controls.Add(this.lsvBill);
+            this.frpnBill.Location = new System.Drawing.Point(486, 205);
+            this.frpnBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.frpnBill.Name = "frpnBill";
+            this.frpnBill.Size = new System.Drawing.Size(318, 392);
+            this.frpnBill.TabIndex = 16;
+            // 
+            // lsvBill
+            // 
+            this.lsvBill.BackColor = System.Drawing.Color.Ivory;
+            this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clFoodName,
+            this.clFooDQuan,
+            this.clUnitPrice,
+            this.clTotal});
+            this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsvBill.ForeColor = System.Drawing.Color.Black;
+            this.lsvBill.GridLines = true;
+            this.lsvBill.HideSelection = false;
+            this.lsvBill.Location = new System.Drawing.Point(1, -1);
+            this.lsvBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsvBill.Name = "lsvBill";
+            this.lsvBill.Size = new System.Drawing.Size(340, 387);
+            this.lsvBill.TabIndex = 0;
+            this.lsvBill.UseCompatibleStateImageBehavior = false;
+            this.lsvBill.View = System.Windows.Forms.View.Details;
+            // 
+            // clFoodName
+            // 
+            this.clFoodName.Text = "Food Name";
+            this.clFoodName.Width = 100;
+            // 
+            // clFooDQuan
+            // 
+            this.clFooDQuan.Text = "Quantity";
+            this.clFooDQuan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clFooDQuan.Width = 65;
+            // 
+            // clUnitPrice
+            // 
+            this.clUnitPrice.Text = "Unit Price";
+            this.clUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clUnitPrice.Width = 70;
+            // 
+            // clTotal
+            // 
+            this.clTotal.Text = "Total";
+            this.clTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clTotal.Width = 72;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.buttonSTB);
+            this.panel1.Controls.Add(this.cbSTB);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.discountNumer);
+            this.panel1.Controls.Add(this.payBtn);
+            this.panel1.Controls.Add(this.textBoxTotal);
+            this.panel1.Location = new System.Drawing.Point(486, 600);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(344, 81);
+            this.panel1.TabIndex = 18;
+            // 
+            // buttonSTB
+            // 
+            this.buttonSTB.Location = new System.Drawing.Point(8, 2);
+            this.buttonSTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSTB.Name = "buttonSTB";
+            this.buttonSTB.Size = new System.Drawing.Size(53, 26);
+            this.buttonSTB.TabIndex = 6;
+            this.buttonSTB.Text = "Switch";
+            this.buttonSTB.UseVisualStyleBackColor = true;
+            this.buttonSTB.Click += new System.EventHandler(this.buttonSTB_Click);
+            // 
+            // cbSTB
+            // 
+            this.cbSTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSTB.FormattingEnabled = true;
+            this.cbSTB.Location = new System.Drawing.Point(2, 32);
+            this.cbSTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSTB.Name = "cbSTB";
+            this.cbSTB.Size = new System.Drawing.Size(69, 25);
+            this.cbSTB.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(443, 21);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(74, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Food";
+            this.label1.Size = new System.Drawing.Size(71, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Discount";
             // 
-            // comboBox1
+            // discountNumer
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(536, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 12;
+            this.discountNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountNumer.Location = new System.Drawing.Point(83, 32);
+            this.discountNumer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.discountNumer.Name = "discountNumer";
+            this.discountNumer.Size = new System.Drawing.Size(58, 23);
+            this.discountNumer.TabIndex = 2;
             // 
-            // comboBox2
+            // payBtn
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(536, 50);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 13;
+            this.payBtn.BackColor = System.Drawing.Color.Thistle;
+            this.payBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.payBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payBtn.Image = global::ResManage.Properties.Resources.pay_removebg_preview__1_;
+            this.payBtn.Location = new System.Drawing.Point(243, 20);
+            this.payBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.payBtn.Name = "payBtn";
+            this.payBtn.Size = new System.Drawing.Size(94, 45);
+            this.payBtn.TabIndex = 1;
+            this.payBtn.Text = "Pay";
+            this.payBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.payBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.payBtn.UseVisualStyleBackColor = false;
+            this.payBtn.Click += new System.EventHandler(this.payBtn_Click);
             // 
-            // staffCheckInToolStripMenuItem
+            // textBoxTotal
             // 
-            this.staffCheckInToolStripMenuItem.Name = "staffCheckInToolStripMenuItem";
-            this.staffCheckInToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.staffCheckInToolStripMenuItem.Text = "Staff CheckIn";
-            this.staffCheckInToolStripMenuItem.Click += new System.EventHandler(this.staffCheckInToolStripMenuItem_Click);
+            this.textBoxTotal.BackColor = System.Drawing.Color.Crimson;
+            this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotal.ForeColor = System.Drawing.Color.White;
+            this.textBoxTotal.Location = new System.Drawing.Point(149, 27);
+            this.textBoxTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
+            this.textBoxTotal.Size = new System.Drawing.Size(85, 28);
+            this.textBoxTotal.TabIndex = 0;
+            this.textBoxTotal.Text = "0";
+            this.textBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // scheduleToolStripMenuItem
+            // pictureBoxLogo
             // 
-            this.scheduleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arrangeScheduleToolStripMenuItem});
-            this.scheduleToolStripMenuItem.Name = "scheduleToolStripMenuItem";
-            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
-            this.scheduleToolStripMenuItem.Text = "Schedule";
+            this.pictureBoxLogo.BackgroundImage = global::ResManage.Properties.Resources.logoxin;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(10, 0);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(302, 115);
+            this.pictureBoxLogo.TabIndex = 19;
+            this.pictureBoxLogo.TabStop = false;
             // 
-            // arrangeScheduleToolStripMenuItem
+            // BackBtn
             // 
-            this.arrangeScheduleToolStripMenuItem.Name = "arrangeScheduleToolStripMenuItem";
-            this.arrangeScheduleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.arrangeScheduleToolStripMenuItem.Text = "Arrange Schedule";
-            this.arrangeScheduleToolStripMenuItem.Click += new System.EventHandler(this.arrangeScheduleToolStripMenuItem_Click);
+            this.BackBtn.BackgroundImage = global::ResManage.Properties.Resources.back;
+            this.BackBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.BackBtn.ButtonColor = System.Drawing.Color.Transparent;
+            this.BackBtn.FlatAppearance.BorderSize = 0;
+            this.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackBtn.Location = new System.Drawing.Point(783, 10);
+            this.BackBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.BackBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.BackBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.BackBtn.Size = new System.Drawing.Size(46, 50);
+            this.BackBtn.TabIndex = 17;
+            this.BackBtn.TextColor = System.Drawing.Color.White;
+            this.BackBtn.UseVisualStyleBackColor = true;
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(669, 438);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(838, 688);
+            this.Controls.Add(this.pictureBoxLogo);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.BackBtn);
+            this.Controls.Add(this.frpnBill);
+            this.Controls.Add(this.frpnOrder);
             this.Controls.Add(this.flpnMain);
-            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.frpnOrder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.quantitySelect)).EndInit();
+            this.frpnBill.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.discountNumer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem foodToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addFoodToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editDeleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.FlowLayoutPanel flpnMain;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxCat;
+        private System.Windows.Forms.ComboBox comboBoxFoodByCatID;
+        private System.Windows.Forms.Panel frpnOrder;
+        private System.Windows.Forms.NumericUpDown quantitySelect;
+        private System.Windows.Forms.Panel frpnBill;
+        private System.Windows.Forms.ListView lsvBill;
+        private System.Windows.Forms.ColumnHeader clFooDQuan;
+        private System.Windows.Forms.ColumnHeader clUnitPrice;
+        private System.Windows.Forms.ColumnHeader clTotal;
+        private System.Windows.Forms.ColumnHeader clFoodName;
+        private ePOSOne.btnProduct.Button_WOC BackBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBoxTotal;
+        private ePOSOne.btnProduct.Button_WOC OrderBtn;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Button payBtn;
+        private System.Windows.Forms.NumericUpDown discountNumer;
+        private System.Windows.Forms.ComboBox cbSTB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ToolStripMenuItem staffCheckInToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem scheduleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem arrangeScheduleToolStripMenuItem;
+        private System.Windows.Forms.Button buttonSTB;
     }
 }

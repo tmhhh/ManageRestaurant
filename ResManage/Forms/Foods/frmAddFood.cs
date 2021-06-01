@@ -19,15 +19,49 @@ namespace ResManage.Forms.Foods
         {
             InitializeComponent();
             loadCate();
+            Load();
         }
 
         void loadCate()
         {
             cbCate.DataSource = cateDB.getListCate();
+           
             cbCate.DisplayMember = "catName";
             cbCate.ValueMember = "catID";
 
         }
+       
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txbInput.Text != null)
+            {
+                gvListFood.DataSource = foodDB.search(txbInput.Text);
+                DataGridViewImageColumn picInList = (DataGridViewImageColumn)gvListFood.Columns["foodPic"];
+                picInList.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                gvListFood.AllowUserToAddRows = false;
+            }
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            txbFName.Text = "";
+            txbFQuantity.Text = "";
+            txbFPrice.Text = "";
+            pbPic.Image = null;
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            String imageLocation = "";
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                imageLocation = dialog.FileName;
+            }
+            pbPic.ImageLocation = imageLocation;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             MemoryStream pic = new MemoryStream();
@@ -42,10 +76,57 @@ namespace ResManage.Forms.Foods
                 MessageBox.Show("Error !!!");
 
             }
-
+        }
+        #region EditFood
+        public void Load()
+        {
+            cbCateE.DataSource = cateDB.getListCate();
+            cbCateE.DisplayMember = "catName";
+            cbCateE.ValueMember = "catID";
+        }
+        public void LoadData(Food f)
+        {
+            txbFNameE.Text = f.FoodName;
+            txbFPriceE.Text = f.FoodPrice.ToString();
+            txbFQuantityE.Text = f.FootQuan.ToString();
+            txbFoodIDE.Text = f.FoodID.ToString();
+            cbCateE.SelectedValue = f.CatID.ToString();
+            pbPicE.Image =Image.FromStream(f.FoodPic);
+        }
+      
+        private void gvListFoodE_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(gvListFoodE.CurrentRow.Cells[0].Value);
+            Food f = foodDB.getFoodByID(id);
+            LoadData(f);
         }
 
-        private void btnUpload_Click(object sender, EventArgs e)
+        private void btnDeleteE_Click(object sender, EventArgs e)
+        {
+            if (foodDB.Delete(Convert.ToInt32(txbFoodIDE.Text)))
+            {
+                MessageBox.Show("Delete successfully !!!");
+                gvListFood.DataSource = foodDB.getList();
+            }
+            else
+                MessageBox.Show("Error !!!");
+        }
+
+        private void btnUpdateE_Click(object sender, EventArgs e)
+        {
+            MemoryStream pic = new MemoryStream();
+            pbPicE.Image.Save(pic, pbPicE.Image.RawFormat);
+            Food f = new Food(Convert.ToInt32(gvListFoodE.CurrentRow.Cells[0].Value),txbFNameE.Text, Convert.ToInt32(txbFQuantityE.Text), float.Parse(txbFPriceE.Text), Convert.ToInt32(cbCateE.SelectedValue), pic);
+
+            if (foodDB.Update(f))
+            {
+                MessageBox.Show("Update successfully !!!");
+            }
+            else
+                MessageBox.Show("Error !!!");
+        }
+
+        private void btnUE_Click(object sender, EventArgs e)
         {
             String imageLocation = "";
             OpenFileDialog dialog = new OpenFileDialog();
@@ -53,18 +134,24 @@ namespace ResManage.Forms.Foods
             {
                 imageLocation = dialog.FileName;
             }
-            pbPic.ImageLocation = imageLocation;
+            pbPicE.ImageLocation = imageLocation;
         }
 
-        private void btnSearch_Click_1(object sender, EventArgs e)
+        private void buttonViewFE_Click(object sender, EventArgs e)
         {
-            if (txbInput.Text != null)
-            {
-                gvListFood.DataSource = foodDB.search(txbInput.Text);
-                DataGridViewImageColumn picInList = (DataGridViewImageColumn)gvListFood.Columns["foodPic"];
-                picInList.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                gvListFood.AllowUserToAddRows = false;
-            }
+            gvListFoodE.DataSource = foodDB.getList();
+            DataGridViewImageColumn picInList = (DataGridViewImageColumn)gvListFoodE.Columns["foodPic"];
+            picInList.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            gvListFoodE.AllowUserToAddRows = false;
+        }
+
+        private void backEBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard dashFrm = new dashboard();
+            dashFrm.Show();
         }
     }
+    #endregion
 }
+

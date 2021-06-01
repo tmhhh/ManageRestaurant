@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,7 +102,6 @@ namespace RestaurantManagement.DAO
                 string userPassword = dt.GetValue(3).ToString();
                 int userType = Convert.ToInt32(dt.GetValue(4));
                 int userStatus = Convert.ToInt32(dt.GetValue(5));
-
                 MyDB.closeConnection();
                 return new Users(userID, userName, userNameId, userPassword, userType, userStatus);
             }
@@ -131,8 +131,73 @@ namespace RestaurantManagement.DAO
                 u.UserPassword = dr["userPassword"].ToString();
                 u.UserType = Convert.ToInt32(dr["userID"]);
                 u.UserStatus = Convert.ToInt32(dr["userID"]);
+                //if (dr["userBirthDate"].ToString() == null && dr["userAvatar"].ToString()==null)
+                //{
+                //    u.UserBirthDate = DateTime.Now;
+                //    u.UserAvatar = null;
+                //}
+                //else
+                //{
+                    u.UserBirthDate = Convert.ToDateTime(dr["userBirthDate"]);
+                    byte[] image = (byte[])dr["userImage"];
+                    MemoryStream pic = new MemoryStream(image);
+                    u.UserAvatar = pic;
+                //}
             }
             return u;
+        }
+        public static List<Users> getUser(int ID)
+        {
+            List<Users> curuser = new List<Users>();
+            string query = "Select * from Users  where userID= " + ID;
+            DataTable dt = MyDB.ExecuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                Users u = new Users(item);
+                curuser.Add(u);
+            }
+            return curuser;
+        }
+        public static bool UpdateUserInEmp(int uid, string uname, DateTime uBD, MemoryStream pic)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE Users set userName=@userName, userBirthDate=@userBD, userAvatar=@pic where userID=@uID", MyDB.getConnection());
+            cmd.Parameters.Add("@uID", SqlDbType.Int).Value = uid;
+            cmd.Parameters.Add("@userName", SqlDbType.VarChar).Value = uname;
+            cmd.Parameters.Add("@userBD", SqlDbType.Date).Value =uBD;
+            cmd.Parameters.Add("@pic", SqlDbType.Image).Value = pic.ToArray();
+            MyDB.openConnection();
+            if ((cmd.ExecuteNonQuery() == 1))
+            {
+                MyDB.closeConnection();
+                return true;
+            }
+            else
+            {
+                MyDB.closeConnection();
+                return false;
+            }
+        }
+        public static bool Register(Users u)
+        {
+            SqlCommand cmd = new SqlCommand("Insert Users values(@name,@userName,@userPW,@uType,0,@birth,@ava)", MyDB.getConnection());
+            cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = u.UserName;
+            cmd.Parameters.Add("@userName", SqlDbType.VarChar).Value = u.UserNameID;
+            cmd.Parameters.Add("@userPW", SqlDbType.VarChar).Value = u.UserPassword;
+            cmd.Parameters.Add("@uType", SqlDbType.Int).Value = u.UserType;
+            cmd.Parameters.Add("@ava", SqlDbType.Image).Value = u.UserAvatar.ToArray();
+            cmd.Parameters.Add("@birth", SqlDbType.DateTime).Value = u.UserBirthDate;
+
+            MyDB.openConnection();
+            if ((cmd.ExecuteNonQuery() == 1))
+            {
+                MyDB.closeConnection();
+                return true;
+            }
+            else
+            {
+                MyDB.closeConnection();
+                return false;
+            }
         }
     }
 }

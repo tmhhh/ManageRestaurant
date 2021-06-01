@@ -23,7 +23,6 @@ namespace ResManage.DAO
             da.Fill(dt);
             MyDB.closeConnection();
             return dt;
-          
         }
     }
 }

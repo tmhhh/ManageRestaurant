@@ -23,5 +23,10 @@ namespace ResManage.DAO
             }
             return listDataTable;
         }
+        public static void switchTable(int id1, int id2)
+        {
+            MyDB.ExecuteQuery("USP_SwitchTable @idTable1 , @idTable2", new object[] { id1, id2 });
+
+        }
     }
 }

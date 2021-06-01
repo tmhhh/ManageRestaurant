@@ -1,4 +1,5 @@
 ﻿using ResManage.Forms;
+using ResManage.Forms.UserInfo;
 using ResManage.Model;
 using RestaurantManagement.DAO;
 using RestaurantManagement.Model;
@@ -26,10 +27,10 @@ namespace ResManage.forms
         {
             if (UsersDB.logIn(txtUsername.Text, txtPass.Text))
             {
-                MessageBox.Show("Login Successfully !!!");
+                //MessageBox.Show("Login Successfully !!!");
                 globalUser.currentUser = UsersDB.findUserByUsernameID(txtUsername.Text);
-                frmMain frm = new frmMain();
-                frm.Show();
+                dashboard dashboard = new dashboard();
+                dashboard.Show();
                 this.Hide();
 
             }
@@ -37,6 +38,18 @@ namespace ResManage.forms
             {
                 MessageBox.Show("Error !!!");
             }
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void RegistBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Regist rfrm = new Regist();
+            rfrm.Show();
         }
     }
 

@@ -51,26 +51,29 @@ namespace ResManage.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(23, 33);
+            this.label1.Location = new System.Drawing.Point(31, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 20);
+            this.label1.Size = new System.Drawing.Size(162, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Total Employee";
             // 
             // txbTotalEmp
             // 
-            this.txbTotalEmp.Location = new System.Drawing.Point(161, 34);
+            this.txbTotalEmp.Location = new System.Drawing.Point(215, 42);
+            this.txbTotalEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbTotalEmp.Name = "txbTotalEmp";
             this.txbTotalEmp.ReadOnly = true;
-            this.txbTotalEmp.Size = new System.Drawing.Size(108, 20);
+            this.txbTotalEmp.Size = new System.Drawing.Size(143, 22);
             this.txbTotalEmp.TabIndex = 1;
             // 
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnStart.Location = new System.Drawing.Point(284, 34);
+            this.btnStart.Location = new System.Drawing.Point(379, 42);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(85, 28);
+            this.btnStart.Size = new System.Drawing.Size(113, 34);
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -78,25 +81,28 @@ namespace ResManage.Forms
             // 
             // dtFrom
             // 
-            this.dtFrom.Location = new System.Drawing.Point(494, 13);
+            this.dtFrom.Location = new System.Drawing.Point(659, 16);
+            this.dtFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(200, 20);
+            this.dtFrom.Size = new System.Drawing.Size(265, 22);
             this.dtFrom.TabIndex = 3;
             // 
             // dtTo
             // 
-            this.dtTo.Location = new System.Drawing.Point(494, 53);
+            this.dtTo.Location = new System.Drawing.Point(659, 65);
+            this.dtTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(200, 20);
+            this.dtTo.Size = new System.Drawing.Size(265, 22);
             this.dtTo.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(23, 68);
+            this.label2.Location = new System.Drawing.Point(31, 84);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.Size = new System.Drawing.Size(122, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Total Time:";
             // 
@@ -104,9 +110,10 @@ namespace ResManage.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(433, 53);
+            this.label3.Location = new System.Drawing.Point(577, 65);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 20);
+            this.label3.Size = new System.Drawing.Size(45, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "To:";
             // 
@@ -114,34 +121,38 @@ namespace ResManage.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(433, 13);
+            this.label4.Location = new System.Drawing.Point(577, 16);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.Size = new System.Drawing.Size(68, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "From:";
             // 
             // txbTotalTime
             // 
-            this.txbTotalTime.Location = new System.Drawing.Point(161, 68);
+            this.txbTotalTime.Location = new System.Drawing.Point(215, 84);
+            this.txbTotalTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbTotalTime.Name = "txbTotalTime";
             this.txbTotalTime.ReadOnly = true;
-            this.txbTotalTime.Size = new System.Drawing.Size(108, 20);
+            this.txbTotalTime.Size = new System.Drawing.Size(143, 22);
             this.txbTotalTime.TabIndex = 9;
             // 
             // txbNumber
             // 
-            this.txbNumber.Location = new System.Drawing.Point(586, 90);
+            this.txbNumber.Location = new System.Drawing.Point(781, 111);
+            this.txbNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbNumber.Name = "txbNumber";
-            this.txbNumber.Size = new System.Drawing.Size(108, 20);
+            this.txbNumber.Size = new System.Drawing.Size(143, 22);
             this.txbNumber.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(373, 90);
+            this.label5.Location = new System.Drawing.Point(497, 111);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(207, 20);
+            this.label5.Size = new System.Drawing.Size(247, 25);
             this.label5.TabIndex = 10;
             this.label5.Text = "Number of Emp per Shift";
             // 
@@ -149,18 +160,20 @@ namespace ResManage.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(333, 178);
+            this.label6.Location = new System.Drawing.Point(444, 219);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(103, 25);
             this.label6.TabIndex = 9;
             this.label6.Text = "Schedule";
             // 
             // btnDraw
             // 
             this.btnDraw.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDraw.Location = new System.Drawing.Point(27, 116);
+            this.btnDraw.Location = new System.Drawing.Point(36, 143);
+            this.btnDraw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDraw.Name = "btnDraw";
-            this.btnDraw.Size = new System.Drawing.Size(143, 34);
+            this.btnDraw.Size = new System.Drawing.Size(191, 42);
             this.btnDraw.TabIndex = 12;
             this.btnDraw.Text = "Draw Schedule ";
             this.btnDraw.UseVisualStyleBackColor = true;
@@ -169,17 +182,20 @@ namespace ResManage.Forms
             // gvSchedule
             // 
             this.gvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvSchedule.Location = new System.Drawing.Point(27, 220);
+            this.gvSchedule.Location = new System.Drawing.Point(36, 271);
+            this.gvSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gvSchedule.Name = "gvSchedule";
-            this.gvSchedule.Size = new System.Drawing.Size(732, 252);
+            this.gvSchedule.RowHeadersWidth = 51;
+            this.gvSchedule.Size = new System.Drawing.Size(976, 310);
             this.gvSchedule.TabIndex = 13;
             // 
             // btnFullSchedule
             // 
             this.btnFullSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnFullSchedule.Location = new System.Drawing.Point(27, 164);
+            this.btnFullSchedule.Location = new System.Drawing.Point(36, 202);
+            this.btnFullSchedule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFullSchedule.Name = "btnFullSchedule";
-            this.btnFullSchedule.Size = new System.Drawing.Size(143, 34);
+            this.btnFullSchedule.Size = new System.Drawing.Size(191, 42);
             this.btnFullSchedule.TabIndex = 14;
             this.btnFullSchedule.Text = "Full Schedule";
             this.btnFullSchedule.UseVisualStyleBackColor = true;
@@ -187,9 +203,9 @@ namespace ResManage.Forms
             // 
             // frmSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 532);
+            this.ClientSize = new System.Drawing.Size(1454, 655);
             this.Controls.Add(this.btnFullSchedule);
             this.Controls.Add(this.gvSchedule);
             this.Controls.Add(this.btnDraw);
@@ -205,6 +221,7 @@ namespace ResManage.Forms
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.txbTotalEmp);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmSchedule";
             this.Text = "frmSchedule";
             ((System.ComponentModel.ISupportInitialize)(this.gvSchedule)).EndInit();

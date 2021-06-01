@@ -1,5 +1,6 @@
 ﻿using ResManage.forms;
 using ResManage.Forms;
+using ResManage.Forms.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -68,7 +68,7 @@ namespace ResManage.Forms
 
                 shift = 1;
             }
-            if (workingDB.insertWorking(ScheduleArrange(listWorking, listEmpID)))
+            if (scheduleDB.insertWorking(ScheduleArrange(listWorking, listEmpID)))
             {
                 MessageBox.Show("Suuccess");
                 //DrawBoard(listWorking, 1);
@@ -126,16 +126,22 @@ namespace ResManage.Forms
             Shuffle(listUserID);
             for (int i = 0; i < listWorking.Count; i++)
             {
-                if (temp < listUserID.Length)
+                if (listWorking.ElementAt(i).UserID == 0)
                 {
-                    listWorking.ElementAt(i).UserID = listUserID.ElementAt(temp);
-                    temp++;
+                    if (temp < listUserID.Length)
+                    {
+                        listWorking.ElementAt(i).UserID = listUserID.ElementAt(temp);
+                        if (i + Convert.ToInt32(txbNumber.Text) < listWorking.Count)
+                            listWorking.ElementAt(i + Convert.ToInt32(txbNumber.Text)).UserID = listUserID.ElementAt(temp);
+                        temp++;
+                    }
+                    else
+                    {
+                        temp = 0;
+                        i--;
+                    }
                 }
-                else
-                {
-                    temp = 0;
-                    i--;
-                }
+
 
             }
 
@@ -162,7 +168,9 @@ namespace ResManage.Forms
 
         private void btnFullSchedule_Click(object sender, EventArgs e)
         {
-            gvSchedule.DataSource = workingDB.getListWorking();
+            gvSchedule.DataSource = scheduleDB.getListSchedule();
         }
+
+        
     }
 }

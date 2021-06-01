@@ -18,12 +18,26 @@ namespace ResManage.DAO
             string query = "Select w.userID,userName,w.workingShift,w.workingDate from Working w,Users u where w.userID=u.userID order by 1";
             return MyDB.ExecuteQuery(query);
         }
+        public static DataTable standardWorkingTime(DateTime from, DateTime to)
+        {
+            string sql = "select count(*)*8 as sWorkingTime,userID from Working where workingDate BETWEEN '" + from + "' AND '" + to + "' group by userID";
+            return MyDB.ExecuteQuery(sql);
+
+
+        }
+        public static DataTable workingTime(DateTime from, DateTime to)
+        {
+            string sql = "select sum(totalWorkingTime) as TotalTime ,userID from DailyWave where waveDate BETWEEN '" + from + "' AND '" + to + "' group by userID";
+            return MyDB.ExecuteQuery(sql);
+
+
+        }
         public static List<Working> getListWorkingByUserID(int userID)
         {
             List<Working> listWorking = new List<Working>();
             string query = "Select * from Working where userID=" + userID.ToString();
-            DataTable dt=MyDB.ExecuteQuery(query);
-            foreach(DataRow dr in dt.Rows)
+            DataTable dt = MyDB.ExecuteQuery(query);
+            foreach (DataRow dr in dt.Rows)
             {
                 Working w = new Working();
                 w.Shift = Convert.ToInt32(dr["workingShift"]);
@@ -35,11 +49,11 @@ namespace ResManage.DAO
         }
         public static bool insertWorking(List<Working> listWorking)
         {
-        
+
 
             foreach (Working w in listWorking)
             {
-                string query = "Insert into Working values(" + w.UserID + ",default,default,default,'" + w.WorkingDate + "','"  + w.Shift + "')";
+                string query = "Insert into Working values(" + w.UserID + ",default,default,default,'" + w.WorkingDate + "','" + w.Shift + "')";
                 //try
                 //{
                 //    
@@ -51,14 +65,15 @@ namespace ResManage.DAO
                 //}
             }
             return true;
-          
+
         }
-        public static bool checkIn(int userID,DateTime CheckIn)
+        public static bool checkIn(int userID, DateTime CheckIn, int shift)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Working VALUES(@userID,@CheckIn,DEFAULT,DEFAULT,DEFAULT,DEFAULT)", MyDB.getConnection());
+            SqlCommand cmd = new SqlCommand("INSERT INTO Working values(@userID,@CheckIn,default,default,default,@shift) ", MyDB.getConnection());
             cmd.Parameters.Add("@userID", SqlDbType.Int).Value = userID;
             cmd.Parameters.Add("@CheckIn", SqlDbType.DateTime).Value = CheckIn;
-          
+            cmd.Parameters.Add("@shift", SqlDbType.Int).Value = shift;
+
             MyDB.openConnection();
             if (cmd.ExecuteNonQuery() != 0)
             {
@@ -72,7 +87,7 @@ namespace ResManage.DAO
             }
         }
 
-    
+
 
         public static bool checkOut(int userID, DateTime CheckIn, DateTime CheckOut)
         {
@@ -84,7 +99,7 @@ namespace ResManage.DAO
                 cmd.Parameters.Add("@CheckIn", SqlDbType.DateTime).Value = CheckIn;
 
                 MyDB.openConnection();
-                if (cmd.ExecuteNonQuery() !=0)
+                if (cmd.ExecuteNonQuery() != 0)
                 {
                     MyDB.closeConnection();
                     return true;
@@ -102,6 +117,6 @@ namespace ResManage.DAO
             }
 
         }
-       
+
     }
 }

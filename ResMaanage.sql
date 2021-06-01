@@ -12,17 +12,18 @@ create table Users
 	userType int NOT NULL,
 	userStatus int NOT NULL,
 )
+alter table Users column userAvatar image
 alter table Users drop column userCheckOut
 select * from Users
 alter table Users add  userCheckOut DateTime
 insert into  Users values('Hoang','admin','ab10','1','0','1-1-1')
-insert into  Users values('Huy','huy','1','1','0','1-1-1')
+insert into  Users values('Huy','huy','1','1','0')
 insert into  Users values('a','a','1','0','0','1-1-1')
 insert into  Users values('b','b','1','0','0','1-1-1')
 insert into  Users values('c','c','1','0','0','1-1-1')
 insert into  Users values('d','d','1','0','0','1-1-1')
-
-
+insert into  Users values('KhangHoang','admin2','1','1','1',GETDATE(),0x12311546)
+insert into Users values 
 select * from Users where userNameID=''  and userPassword='' UNION select * from Users where userID=1  
 
 
@@ -41,7 +42,7 @@ create table Working
 	workingShift int default null
 )
 drop table Working
-INSERT INTO Working VALUES(1,'1-1-1',DEFAULT,DEFAULT)
+INSERT INTO Working VALUES(1,2,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT)
 INSERT INTO Working(userIDm VALUES(1,'1-1-1')
 
 
@@ -122,7 +123,7 @@ select w.userID,userName,w.workingShift,w.workingDate from Working w,Users u whe
 select count(userID) from Working where userID=2
 
 
-
+INSERT INTO Working VALUES(1,2,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT)
 
 
 
@@ -147,10 +148,19 @@ create table Food
 	foodPic image 
 )
 drop table Food
-truncate table Food
-alter Procedure USP_AddFood @foodName varchar(20), @foodQuantity int, @foodPrice float, @catID int, @foodPic image
+truncate table Food 
+
+Create Procedure USP_AddFood 
+@foodName varchar(20), 
+@foodQuantity int, 
+@foodPrice float, 
+@catID int, 
+@foodPic image
 as
-insert into Food values (@foodName, @foodQuantity, @foodPrice, @catID, @foodPic)
+begin
+insert into Food(foodName,foodQuantity,foodPrice,catID,foodPic	) 
+values (@foodName, @foodQuantity, @foodPrice, @catID, @foodPic)
+end
 select * from Food
 
 
@@ -164,12 +174,20 @@ create table TableFood(
 insert into TableFood values(0)
 select * from TableFood
 
+declare @i int = 0
+
+while (@i<11)
+begin
+ update TableFood set tableStatus=0
+ set @i=@i+1
+end
+
 
 CREATE TABLE Bill
 (
-	billID INT IDENTITY PRIMARY KEY,
+	billID INT PRIMARY KEY identity(1,1),
 	DateCheckIn DATE NOT NULL DEFAULT GETDATE(),
-	DateCheckOut DATE,
+	DateCheckOut DATE ,
 	tableID INT NOT NULL,
 	billStatus INT NOT NULL DEFAULT 0 -- 1: đã thanh toán && 0: chưa thanh toán
 	FOREIGN KEY (tableID) REFERENCES dbo.TableFood(tableID)
@@ -186,3 +204,171 @@ CREATE TABLE BillInfo
 	FOREIGN KEY (billID) REFERENCES Bill(billID),
 	FOREIGN KEY (foodID) REFERENCES Food(foodID)
 )
+--Thêm category--
+
+Insert dbo.Category values ('Beverage');
+Insert dbo.Category values ('Grilled');
+Insert dbo.Category values ('Dessert');
+Insert dbo.Category values ('Alcohol');
+Insert dbo.Category values ('Noodles');
+
+--Thêm bill---
+Insert into Bill values (GETDATE(),null,1,0)
+Insert into Bill values (GETDATE(),null,2,0)
+Insert into Bill values (GETDATE(),GETDATE(),3,1)
+
+--thêm bill info--
+Insert into BillInfo values (1,1,2)
+Insert into BillInfo values (1,2,1)
+Insert into BillInfo values (2,3,2)
+Insert into BillInfo values (2,7,2)
+Insert into BillInfo values (3,8,2)
+Insert into BillInfo values (3,5,1)
+ select * from BillInfo
+ select * from Bill
+ select * from Food where catID=2
+ select * from Category	
+ go
+ alter proc USP_InsertBill
+ @idTable Int
+ as
+ Begin
+	
+	insert Bill (DateCheckIn,DateCheckOut,tableID,billStatus,discount)
+	values(GETDATE(),null,@idTable,0,0)
+ end
+ go
+
+
+alter proc USP_InsertBillInfo
+ @billID int, @foodID int, @quantity int
+ as
+ Begin
+	declare @isExistBillInfo int 
+	declare @foodCount int =1
+	Select @isExistBillInfo=billInfoID, @foodCount=billQuantity from BillInfo where billID=@billID and foodID=@foodID
+	if(@isExistBillInfo>0)
+	Begin
+		declare @newQuantity int = @foodCount+@quantity 
+		if(@newQuantity>0)
+			 Update BillInfo set billQuantity= @foodCount+@quantity where billID=@billID and foodID=@foodID
+		else
+			Delete BillInfo where billID=@billID and foodID=@foodID
+	end
+	else
+	begin
+		insert BillInfo (billID,foodID,billQuantity)
+		values(@billID,@foodID,@quantity)
+	end
+ end
+ go	
+ 
+ UPDATE Bill SET Bill.billStatus=1  WHERE Bill.billID=1
+
+alter trigger UTG_UpdateBillInfo
+ on dbo.BillInfo for insert, update
+ as
+ begin
+		declare @billID int
+		select @billID=billID from inserted
+		declare @tableID int
+		select @tableID=tableID from dbo.Bill where billID=@billID and billStatus=0
+		declare @count int 
+		select @count=count(*) from dbo.BillInfo where billID=@billID
+		if(@count>0)
+			update dbo.TableFood set tableStatus= 1 where tableID=@tableID
+		else 
+			update dbo.TableFood set tableStatus= 0 where tableID=@tableID
+ end
+ go
+	
+
+ alter trigger UTG_UpdateBill
+ on dbo.Bill for update
+ as
+ begin
+		Declare @billID int
+		select @billID=billID from inserted
+		declare @tableID int
+		select @tableID=tableID from dbo.Bill where billID=@billID
+		declare @count int = 0
+		select @count= Count(*) from dbo.Bill where  tableID=@tableID and billStatus = 0
+		if (@count = 0)
+			update dbo.TableFood set tableStatus= 0 where tableID= @tableID;
+ end
+ go
+alter Trigger UTG_UpdateTable 
+ on dbo.TableFood for update
+ as
+ begin
+	declare	@tableID int
+	declare @tableStatus int
+	select @tableID=tableID,@tableStatus= inserted.tableStatus from inserted
+	declare @billID int
+	select @billID= billID from Bill where tableID=@tableID and billStatus=0
+	declare @countBillInfo int
+	select @countBillInfo=count(*) from dbo.BillInfo where billID=@billID
+	if(@countBillInfo>0 and @tableStatus<>1)
+		update TableFood set tableStatus = 1 where tableID=@tableID
+	else if(@countBillInfo<=0 and @tableStatus<>0)
+		update TableFood set tableStatus = 0 where tableID=@tableID
+		
+ end
+ go
+ update TableFood set tableStatus=0
+ delete BillInfo
+ delete Bill
+select * from  Bill
+ alter table Bill add discount int
+  
+	select * from Bill
+alter Proc USP_SwitchTable
+@idTable1 int, @idTable2 int
+As begin
+	declare @idFirstBill int
+	declare @idSecondBill int
+	declare @isFirstTableEmpty int = 1
+	declare @isSecondTableEmpty int = 1
+	SELECT @idSecondBill = billID FROM dbo.BILL WHERE tableID=@idTable2 and billStatus=0
+	SELECT @idFirstBill = billID FROM dbo.BILL WHERE tableID=@idTable1 and billStatus=0
+	if(@idFirstBill is null)
+	begin
+		insert into Bill (DateCheckIn,DateCheckOut,tableID,billStatus)
+		values (getdate(),null,@idTable1,0)
+		select @idFirstBill=max(billID) from Bill where tableID=@idTable1 and billStatus=0
+			
+	end
+	select @isFirstTableEmpty=count(*) from BillInfo where billID=@idFirstBill
+	if(@idSecondBill is null)
+	begin
+		insert into Bill (DateCheckIn,DateCheckOut,tableID,billStatus)
+		values (getdate(),null,@idTable2,0)
+		select @idSecondBill=max(billID) from Bill where tableID=@idTable2 and billStatus=0
+		
+	end
+	select billInfoID from BillInfo where billID=@idSecondBill
+	select bi.billInfoID into IDBilInfoTable from BillInfo as bi where bi.billID = @idSecondBill
+	update BillInfo set BillInfo.billID=@idSecondBill where BillInfo.billID=@idFirstBill
+	update BillInfo set BillInfo.billID=@idFirstBill where billInfoID in ( Select * from IDBilInfoTable)
+	delete Bill where tableID=@idTable1 
+	drop table IDBilInfoTable
+	if(@isFirstTableEmpty=1)
+		update TableFood set tableStatus=0 where tableID=@idTable2
+		if(@isSecondTableEmpty=1)
+		update TableFood set tableStatus=0 where tableID=@idTable1 
+end
+go
+
+exec  USP_SwitchTable 1, 2
+alter table Bill add totalBill float
+
+alter proc USP_getBillByDate
+@dateCheckIn date, @dateCheckOut date
+as
+begin
+select t.tableID as [Table No.], b.DateCheckIn as [Date Checkin], b.DateCheckOut as [Date Checkout], b.discount as [Discount], b.totalBill as [Total]
+from TableFood as t, Bill as b
+where b.DateCheckIn>=@dateCheckIn and b.DateCheckOut<=@dateCheckOut and b.billStatus=1
+and t.tableID=b.tableID 
+end
+go

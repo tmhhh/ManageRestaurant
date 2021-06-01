@@ -98,7 +98,7 @@ namespace ResManage.Forms.Manager
         }
         public void ShowEmpSchedule(Button[,] matrixButton)
         {
-            List<Working> listWorking = workingDB.getListWorkingByUserID(Convert.ToInt32(cbUserID.SelectedValue));
+            List<Working> listWorking = scheduleDB.getListSheduleByUserID(Convert.ToInt32(cbUserID.SelectedValue));
             for (int i = 0; i < matrixButton.GetLength(0); i++)
             {
                 for (int j = 0; j < matrixButton.GetLength(1); j++)

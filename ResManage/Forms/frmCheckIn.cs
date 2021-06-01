@@ -16,19 +16,21 @@ namespace ResManage.Forms
     public partial class frmCheckIn : Form
     {
         DateTime checkinTime = new DateTime();
-
+        int shift = 0;
         public frmCheckIn()
         {
             InitializeComponent();
            
-            lbName.Text = globalUser.currentUser.UserName;
+            lbName.Text = "Welcome"+ globalUser.currentUser.UserName;
+            pbImage.Image = Image.FromStream(globalUser.currentUser.UserAvatar);
         }
        
 
-        private void btnCheckIn_Click(object sender, EventArgs e)
+        private void btnCheckIn_Click_1(object sender, EventArgs e)
         {
             checkinTime = DateTime.Now;
-            if (workingDB.checkIn(globalUser.currentUser.UserID, checkinTime))
+            
+            if (workingDB.checkIn(globalUser.currentUser.UserID, checkinTime,shift))
             {
                 MessageBox.Show("CheckIn Successfully !!!");
             }
@@ -39,7 +41,7 @@ namespace ResManage.Forms
             }
         }
 
-        private void btnCheckOut_Click(object sender, EventArgs e)
+        private void btnCheckOut_Click_1(object sender, EventArgs e)
         {
             DateTime checkoutTime = DateTime.Now;
             if (workingDB.checkOut(globalUser.currentUser.UserID, checkinTime, checkoutTime))
@@ -54,12 +56,10 @@ namespace ResManage.Forms
             }
         }
 
-        private void btnWaveCalculate_Click(object sender, EventArgs e)
+        private void btnWaveCalculate_Click_1(object sender, EventArgs e)
         {
-            if (true)
-            {
-                gvDailyWave.DataSource = dailyWaveDB.waveCalculate();
-            }
+        
         }
+       
     }
 }

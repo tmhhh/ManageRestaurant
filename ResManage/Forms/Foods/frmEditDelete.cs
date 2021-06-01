@@ -71,6 +71,9 @@ namespace ResManage.Forms.Foods
             {
                 MessageBox.Show("Delete successfully !!!");
                 gvListFood.DataSource = foodDB.getList();
+                DataGridViewImageColumn picInList = (DataGridViewImageColumn)gvListFood.Columns["foodPic"];
+                picInList.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                gvListFood.AllowUserToAddRows = false;
             }
             else
                 MessageBox.Show("Error !!!");
