@@ -17,16 +17,29 @@ namespace ResManage.Forms.Statistic
         {
             InitializeComponent();
         }
-
+        string pickedTime = "";
+        string foodName = "";
         private void btnShow_Click(object sender, EventArgs e)
         {
             if (rdByDay.Checked)
             {
                 gvResult.DataSource=billInfoDB.getFavoriteDishInDay(dtDate.Value);
+                for (int i = 0; i < gvResult.Rows.Count; i++)
+                {
+                    pickedTime = gvResult.Rows[i].Cells[0].Value?.ToString();
+                    foodName = gvResult.Rows[i].Cells[1].Value?.ToString();
+                    chartFavorite.Series["favorite"].Points.AddXY(foodName + " " + pickedTime, pickedTime);
+                }
             }
             else if (rdByMonth.Checked)
             {
                 gvResult.DataSource = billInfoDB.getFavoriteDishInMonth(dtDate.Value);
+                for (int i = 0; i < gvResult.Rows.Count; i++)
+                {
+                    pickedTime = gvResult.Rows[i].Cells[0].Value?.ToString();
+                    foodName = gvResult.Rows[i].Cells[1].Value?.ToString();
+                    chartFavorite.Series["favorite"].Points.AddXY(foodName + " " + pickedTime, pickedTime);
+                }
 
             }
             else

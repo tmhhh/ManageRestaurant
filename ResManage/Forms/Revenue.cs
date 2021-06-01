@@ -31,12 +31,19 @@ namespace ResManage.Forms
             }
             return total;
         }
+        void drawChart()
+        {
+            string month = dateTimePickerTo.Value.Month.ToString();
+            string monnthRevenue = calculateRevenue().ToString();
+            chartRev.Series["revenue"].Points.AddXY(month + " " + monnthRevenue, monnthRevenue);
+        }
         private void ShowBtn_Click(object sender, EventArgs e)
         {
             DateTime checkin = dateTimePickerFrom.Value;
             DateTime checkout = dateTimePickerTo.Value;
             loadListBillByDate(checkin,checkout);
             textBoxRevenue.Text = calculateRevenue().ToString("c");
+            drawChart();
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
