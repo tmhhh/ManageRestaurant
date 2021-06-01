@@ -44,7 +44,7 @@ namespace ResManage.Forms.Statistic
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(8, 20);
+            this.label1.Location = new System.Drawing.Point(8, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 24);
             this.label1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace ResManage.Forms.Statistic
             // 
             this.gvResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvResult.Location = new System.Drawing.Point(12, 96);
+            this.gvResult.Location = new System.Drawing.Point(12, 115);
             this.gvResult.Name = "gvResult";
             this.gvResult.Size = new System.Drawing.Size(600, 376);
             this.gvResult.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace ResManage.Forms.Statistic
             this.groupBox1.Controls.Add(this.rdByMonth);
             this.groupBox1.Controls.Add(this.rdByDay);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(239, 20);
+            this.groupBox1.Location = new System.Drawing.Point(239, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(254, 70);
             this.groupBox1.TabIndex = 15;
@@ -95,7 +95,7 @@ namespace ResManage.Forms.Statistic
             // 
             // dtDate
             // 
-            this.dtDate.Location = new System.Drawing.Point(12, 60);
+            this.dtDate.Location = new System.Drawing.Point(12, 79);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(200, 20);
             this.dtDate.TabIndex = 16;
@@ -103,7 +103,7 @@ namespace ResManage.Forms.Statistic
             // btnShow
             // 
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnShow.Location = new System.Drawing.Point(537, 20);
+            this.btnShow.Location = new System.Drawing.Point(537, 39);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(75, 31);
             this.btnShow.TabIndex = 17;
@@ -115,12 +115,13 @@ namespace ResManage.Forms.Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 478);
+            this.ClientSize = new System.Drawing.Size(617, 496);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dtDate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gvResult);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStatistic";
             this.Text = "frmStatistic";
             ((System.ComponentModel.ISupportInitialize)(this.gvResult)).EndInit();

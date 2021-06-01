@@ -70,5 +70,17 @@ namespace ResManage.Forms.UserInfo
             }
             pbImage.ImageLocation = imageLocation;
         }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogIn frm = new frmLogIn();
+            frm.Show();
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

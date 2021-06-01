@@ -53,12 +53,16 @@ namespace ResManage.Forms
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.BackBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.closeBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nPeople = new System.Windows.Forms.NumericUpDown();
             this.frpnOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantitySelect)).BeginInit();
             this.frpnBill.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.discountNumer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nPeople)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -102,7 +106,7 @@ namespace ResManage.Forms
             this.frpnOrder.Controls.Add(this.comboBoxCat);
             this.frpnOrder.Controls.Add(this.comboBoxFoodByCatID);
             this.frpnOrder.Location = new System.Drawing.Point(486, 116);
-            this.frpnOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.frpnOrder.Margin = new System.Windows.Forms.Padding(2);
             this.frpnOrder.Name = "frpnOrder";
             this.frpnOrder.Size = new System.Drawing.Size(344, 84);
             this.frpnOrder.TabIndex = 15;
@@ -115,13 +119,13 @@ namespace ResManage.Forms
             this.OrderBtn.FlatAppearance.BorderSize = 0;
             this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderBtn.Location = new System.Drawing.Point(170, 22);
-            this.OrderBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OrderBtn.Location = new System.Drawing.Point(238, 11);
+            this.OrderBtn.Margin = new System.Windows.Forms.Padding(2);
             this.OrderBtn.Name = "OrderBtn";
             this.OrderBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.OrderBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
             this.OrderBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
-            this.OrderBtn.Size = new System.Drawing.Size(87, 42);
+            this.OrderBtn.Size = new System.Drawing.Size(88, 46);
             this.OrderBtn.TabIndex = 16;
             this.OrderBtn.Text = "Order";
             this.OrderBtn.TextColor = System.Drawing.Color.White;
@@ -132,8 +136,8 @@ namespace ResManage.Forms
             // quantitySelect
             // 
             this.quantitySelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantitySelect.Location = new System.Drawing.Point(262, 36);
-            this.quantitySelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quantitySelect.Location = new System.Drawing.Point(178, 53);
+            this.quantitySelect.Margin = new System.Windows.Forms.Padding(2);
             this.quantitySelect.Minimum = new decimal(new int[] {
             100,
             0,
@@ -153,7 +157,7 @@ namespace ResManage.Forms
             this.frpnBill.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.frpnBill.Controls.Add(this.lsvBill);
             this.frpnBill.Location = new System.Drawing.Point(486, 205);
-            this.frpnBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.frpnBill.Margin = new System.Windows.Forms.Padding(2);
             this.frpnBill.Name = "frpnBill";
             this.frpnBill.Size = new System.Drawing.Size(318, 392);
             this.frpnBill.TabIndex = 16;
@@ -170,8 +174,8 @@ namespace ResManage.Forms
             this.lsvBill.ForeColor = System.Drawing.Color.Black;
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(1, -1);
-            this.lsvBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsvBill.Location = new System.Drawing.Point(3, 2);
+            this.lsvBill.Margin = new System.Windows.Forms.Padding(2);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.Size = new System.Drawing.Size(340, 387);
             this.lsvBill.TabIndex = 0;
@@ -211,28 +215,30 @@ namespace ResManage.Forms
             this.panel1.Controls.Add(this.payBtn);
             this.panel1.Controls.Add(this.textBoxTotal);
             this.panel1.Location = new System.Drawing.Point(486, 600);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(344, 81);
             this.panel1.TabIndex = 18;
             // 
             // buttonSTB
             // 
-            this.buttonSTB.Location = new System.Drawing.Point(8, 2);
-            this.buttonSTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSTB.BackColor = System.Drawing.Color.Tomato;
+            this.buttonSTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.buttonSTB.Location = new System.Drawing.Point(3, 2);
+            this.buttonSTB.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSTB.Name = "buttonSTB";
-            this.buttonSTB.Size = new System.Drawing.Size(53, 26);
+            this.buttonSTB.Size = new System.Drawing.Size(68, 33);
             this.buttonSTB.TabIndex = 6;
             this.buttonSTB.Text = "Switch";
-            this.buttonSTB.UseVisualStyleBackColor = true;
+            this.buttonSTB.UseVisualStyleBackColor = false;
             this.buttonSTB.Click += new System.EventHandler(this.buttonSTB_Click);
             // 
             // cbSTB
             // 
             this.cbSTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSTB.FormattingEnabled = true;
-            this.cbSTB.Location = new System.Drawing.Point(2, 32);
-            this.cbSTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSTB.Location = new System.Drawing.Point(3, 39);
+            this.cbSTB.Margin = new System.Windows.Forms.Padding(2);
             this.cbSTB.Name = "cbSTB";
             this.cbSTB.Size = new System.Drawing.Size(69, 25);
             this.cbSTB.TabIndex = 5;
@@ -253,35 +259,35 @@ namespace ResManage.Forms
             // 
             this.discountNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discountNumer.Location = new System.Drawing.Point(83, 32);
-            this.discountNumer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.discountNumer.Margin = new System.Windows.Forms.Padding(2);
             this.discountNumer.Name = "discountNumer";
             this.discountNumer.Size = new System.Drawing.Size(58, 23);
             this.discountNumer.TabIndex = 2;
             // 
             // payBtn
             // 
-            this.payBtn.BackColor = System.Drawing.Color.Thistle;
+            this.payBtn.BackColor = System.Drawing.Color.Tomato;
             this.payBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payBtn.Image = global::ResManage.Properties.Resources.pay_removebg_preview__1_;
-            this.payBtn.Location = new System.Drawing.Point(243, 20);
-            this.payBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.payBtn.Location = new System.Drawing.Point(238, 13);
+            this.payBtn.Margin = new System.Windows.Forms.Padding(2);
             this.payBtn.Name = "payBtn";
-            this.payBtn.Size = new System.Drawing.Size(94, 45);
+            this.payBtn.Size = new System.Drawing.Size(100, 51);
             this.payBtn.TabIndex = 1;
-            this.payBtn.Text = "Pay";
-            this.payBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.payBtn.Text = "Check Out";
+            this.payBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.payBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.payBtn.UseVisualStyleBackColor = false;
             this.payBtn.Click += new System.EventHandler(this.payBtn_Click);
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.BackColor = System.Drawing.Color.Crimson;
+            this.textBoxTotal.BackColor = System.Drawing.Color.Tomato;
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotal.ForeColor = System.Drawing.Color.White;
             this.textBoxTotal.Location = new System.Drawing.Point(149, 27);
-            this.textBoxTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTotal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(85, 28);
@@ -293,8 +299,8 @@ namespace ResManage.Forms
             // 
             this.pictureBoxLogo.BackgroundImage = global::ResManage.Properties.Resources.logoxin;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(10, 0);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(274, 0);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(302, 115);
             this.pictureBoxLogo.TabIndex = 19;
@@ -308,17 +314,67 @@ namespace ResManage.Forms
             this.BackBtn.ButtonColor = System.Drawing.Color.Transparent;
             this.BackBtn.FlatAppearance.BorderSize = 0;
             this.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackBtn.Location = new System.Drawing.Point(783, 10);
-            this.BackBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackBtn.Location = new System.Drawing.Point(0, 0);
+            this.BackBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.BackBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
             this.BackBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
-            this.BackBtn.Size = new System.Drawing.Size(46, 50);
+            this.BackBtn.Size = new System.Drawing.Size(38, 37);
             this.BackBtn.TabIndex = 17;
             this.BackBtn.TextColor = System.Drawing.Color.White;
             this.BackBtn.UseVisualStyleBackColor = true;
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.closeBtn.BackgroundImage = global::ResManage.Properties.Resources.xclose;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.closeBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.closeBtn.ButtonColor = System.Drawing.Color.Transparent;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(800, 0);
+            this.closeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.closeBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.closeBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.closeBtn.Size = new System.Drawing.Size(31, 37);
+            this.closeBtn.TabIndex = 25;
+            this.closeBtn.TextColor = System.Drawing.Color.White;
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(6, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Number Of People";
+            // 
+            // nPeople
+            // 
+            this.nPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nPeople.Location = new System.Drawing.Point(166, 94);
+            this.nPeople.Margin = new System.Windows.Forms.Padding(2);
+            this.nPeople.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.nPeople.Name = "nPeople";
+            this.nPeople.Size = new System.Drawing.Size(46, 21);
+            this.nPeople.TabIndex = 18;
+            this.nPeople.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // frmMain
             // 
@@ -327,6 +383,9 @@ namespace ResManage.Forms
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(838, 688);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nPeople);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BackBtn);
@@ -346,7 +405,9 @@ namespace ResManage.Forms
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.discountNumer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nPeople)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -374,5 +435,8 @@ namespace ResManage.Forms
         private System.Windows.Forms.ComboBox cbSTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSTB;
+        private ePOSOne.btnProduct.Button_WOC closeBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nPeople;
     }
 }

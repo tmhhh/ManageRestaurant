@@ -52,7 +52,7 @@ namespace ResManage.Forms
             double totalTime = Convert.ToInt32(span.TotalDays * 24);
             double workingHourPerDay = 8;
             double numberShiftPerWeek = (totalTime / listEmpID.Length / workingHourPerDay) * empPerShift;
-            txbTotalTime.Text = numberShiftPerWeek.ToString() + "h";
+            //txbTotalTime.Text = numberShiftPerWeek.ToString() + "h";
             for (int i = 1; i <= Convert.ToInt32(span.TotalDays); i++)
             {
                 while (shift <= 3)
@@ -171,6 +171,16 @@ namespace ResManage.Forms
             gvSchedule.DataSource = scheduleDB.getListSchedule();
         }
 
-        
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard frm = new dashboard();
+            frm.Show();
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

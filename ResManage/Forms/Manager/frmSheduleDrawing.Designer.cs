@@ -39,6 +39,8 @@ namespace ResManage.Forms.Manager
             this.btnNext = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txbName = new System.Windows.Forms.TextBox();
+            this.BackBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.closeBtn = new ePOSOne.btnProduct.Button_WOC();
             this.SuspendLayout();
             // 
             // label6
@@ -141,11 +143,55 @@ namespace ResManage.Forms.Manager
             this.txbName.Size = new System.Drawing.Size(121, 20);
             this.txbName.TabIndex = 24;
             // 
+            // BackBtn
+            // 
+            this.BackBtn.BackgroundImage = global::ResManage.Properties.Resources.back;
+            this.BackBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.BackBtn.ButtonColor = System.Drawing.Color.Transparent;
+            this.BackBtn.FlatAppearance.BorderSize = 0;
+            this.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackBtn.Location = new System.Drawing.Point(1, 2);
+            this.BackBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.BackBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.BackBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.BackBtn.Size = new System.Drawing.Size(31, 27);
+            this.BackBtn.TabIndex = 28;
+            this.BackBtn.TextColor = System.Drawing.Color.White;
+            this.BackBtn.UseVisualStyleBackColor = true;
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.closeBtn.BackgroundImage = global::ResManage.Properties.Resources.xclose;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.closeBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.closeBtn.ButtonColor = System.Drawing.Color.Transparent;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(713, 2);
+            this.closeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.closeBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.closeBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.closeBtn.Size = new System.Drawing.Size(26, 27);
+            this.closeBtn.TabIndex = 27;
+            this.closeBtn.TextColor = System.Drawing.Color.White;
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
             // frmSheduleDrawing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(740, 412);
+            this.Controls.Add(this.BackBtn);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.txbName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPrev);
@@ -156,7 +202,9 @@ namespace ResManage.Forms.Manager
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pnBoard);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSheduleDrawing";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSheduleDrawing";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,5 +223,7 @@ namespace ResManage.Forms.Manager
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbName;
+        private ePOSOne.btnProduct.Button_WOC BackBtn;
+        private ePOSOne.btnProduct.Button_WOC closeBtn;
     }
 }

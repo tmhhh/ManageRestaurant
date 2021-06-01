@@ -93,6 +93,7 @@ namespace ResManage.Forms
         private void Btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).TableID;
+            nPeople.Value = tableDB.getTableQuantityByID(tableID);
             lsvBill.Tag = (sender as Button).Tag;
             showBill(tableID);
         }
@@ -133,6 +134,7 @@ namespace ResManage.Forms
                 {
                     billInfoDB.insertBillInfo(billID, foodID, quantity);
                 }
+                tableDB.setTableQuantity((int)nPeople.Value, table.TableID);
                 showBill(table.TableID);
                 LoadTable();
             }
@@ -177,8 +179,12 @@ namespace ResManage.Forms
 
 
         }
+
         #endregion
 
-
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

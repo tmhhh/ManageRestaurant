@@ -140,5 +140,17 @@ namespace ResManage.Forms.Manager
                 txbName.Text = UsersDB.getUserByID(Convert.ToInt32(cbUserID.SelectedValue)).UserName;
 
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmSchedule frm = new frmSchedule();
+            frm.Show();
+        }
     }
 }

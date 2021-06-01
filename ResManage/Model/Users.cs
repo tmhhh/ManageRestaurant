@@ -28,7 +28,7 @@ namespace RestaurantManagement.Model
         public Users()
         { }
         public Users(int userID, string userName, string userNameID, string userPassword,
-            int userType,DateTime userBirthDate,MemoryStream userAva)
+            int userType, DateTime userBirthDate, MemoryStream userAva)
         {
             this.userID = userID;
             this.userName = userName;
@@ -38,9 +38,21 @@ namespace RestaurantManagement.Model
             this.userBirthDate = userBirthDate;
             this.userAvatar = userAva;
         }
-        public Users( string userName, string userNameID, string userPassword,
+        public Users(string userName, string userNameID, string userPassword,
           int userType, DateTime userBirthDate, MemoryStream userAva)
         {
+            this.userName = userName;
+            this.userNameID = userNameID;
+            this.userPassword = userPassword;
+            this.userType = userType;
+            this.userBirthDate = userBirthDate;
+            this.userAvatar = userAva;
+        }
+        public Users(int userID,string userName, string userNameID, string userPassword,
+       int userType,int userStatus, DateTime userBirthDate, MemoryStream userAva)
+        {
+            this.userID = userID;
+            this.userStatus = userStatus;
             this.userName = userName;
             this.userNameID = userNameID;
             this.userPassword = userPassword;
@@ -61,11 +73,11 @@ namespace RestaurantManagement.Model
         public Users(DataRow row)
         {
             this.UserID = (int)row["userID"];
-            this.userName=row["userName"].ToString();
+            this.userName = row["userName"].ToString();
             this.UserType = (int)row["userType"];
             this.UserStatus = (int)row["userStatus"];
-            
-            if (row["userBirthDate"].ToString() =="" && row["userImage"].ToString() =="")
+
+            if (row["userBirthDate"].ToString() == "" && row["userImage"].ToString() == "")
             {
                 this.UserBirthDate = DateTime.Now;
                 this.UserAvatar = null;

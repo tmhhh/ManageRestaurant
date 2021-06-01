@@ -102,8 +102,11 @@ namespace RestaurantManagement.DAO
                 string userPassword = dt.GetValue(3).ToString();
                 int userType = Convert.ToInt32(dt.GetValue(4));
                 int userStatus = Convert.ToInt32(dt.GetValue(5));
-                MyDB.closeConnection();
-                return new Users(userID, userName, userNameId, userPassword, userType, userStatus);
+                DateTime UserBirthDate = Convert.ToDateTime(dt["userBirthDate"]);
+                byte[] image = (byte[])dt["userImage"];
+                MemoryStream pic = new MemoryStream(image);
+               MyDB.closeConnection();
+                return new Users(userID, userName, userNameId, userPassword, userType,userStatus, UserBirthDate,pic);
             }
             MyDB.closeConnection();
             return null;

@@ -34,10 +34,11 @@ namespace ResManage.forms
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.RegistBtn = new ePOSOne.btnProduct.Button_WOC();
-            this.closeBtn = new ePOSOne.btnProduct.Button_WOC();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RegistBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.closeBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +98,28 @@ namespace ResManage.forms
             this.label2.TabIndex = 5;
             this.label2.Text = "Password";
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::ResManage.Properties.Resources.logoxin;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(62, 28);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(302, 118);
+            this.pictureBoxLogo.TabIndex = 20;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::ResManage.Properties.Resources.key;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(33, 264);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(102, 94);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // RegistBtn
             // 
             this.RegistBtn.BackColor = System.Drawing.Color.Tomato;
@@ -108,7 +131,7 @@ namespace ResManage.forms
             this.RegistBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegistBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistBtn.Location = new System.Drawing.Point(259, 392);
-            this.RegistBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RegistBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegistBtn.Name = "RegistBtn";
             this.RegistBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.RegistBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
@@ -129,7 +152,7 @@ namespace ResManage.forms
             this.closeBtn.FlatAppearance.BorderSize = 0;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Location = new System.Drawing.Point(752, 10);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.closeBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
@@ -140,27 +163,26 @@ namespace ResManage.forms
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // pictureBoxLogo
+            // button_WOC1
             // 
-            this.pictureBoxLogo.BackgroundImage = global::ResManage.Properties.Resources.logoxin;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(62, 28);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(302, 118);
-            this.pictureBoxLogo.TabIndex = 20;
-            this.pictureBoxLogo.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::ResManage.Properties.Resources.key;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 264);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 94);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.button_WOC1.BackColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.BackgroundImage = global::ResManage.Properties.Resources.xclose;
+            this.button_WOC1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_WOC1.BorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.ButtonColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Location = new System.Drawing.Point(355, -1);
+            this.button_WOC1.Margin = new System.Windows.Forms.Padding(2);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.button_WOC1.Size = new System.Drawing.Size(33, 25);
+            this.button_WOC1.TabIndex = 25;
+            this.button_WOC1.TextColor = System.Drawing.Color.White;
+            this.button_WOC1.UseVisualStyleBackColor = false;
+            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
             // 
             // frmLogIn
             // 
@@ -169,6 +191,7 @@ namespace ResManage.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(387, 470);
+            this.Controls.Add(this.button_WOC1);
             this.Controls.Add(this.RegistBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.pictureBoxLogo);
@@ -202,5 +225,6 @@ namespace ResManage.forms
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private ePOSOne.btnProduct.Button_WOC closeBtn;
         private ePOSOne.btnProduct.Button_WOC RegistBtn;
+        private ePOSOne.btnProduct.Button_WOC button_WOC1;
     }
 }

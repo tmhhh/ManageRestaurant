@@ -102,6 +102,7 @@ namespace ResManage.Forms.ReportStat
             // 
             // gvSalary
             // 
+            this.gvSalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSalary.Location = new System.Drawing.Point(8, 32);
             this.gvSalary.Name = "gvSalary";

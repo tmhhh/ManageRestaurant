@@ -1,4 +1,5 @@
 ﻿using ResManage.DAO;
+using ResManage.Forms.UserInfo;
 using ResManage.Model;
 using RestaurantManagement.Model;
 using System;
@@ -21,7 +22,7 @@ namespace ResManage.Forms
         {
             InitializeComponent();
            
-            lbName.Text = "Welcome"+ globalUser.currentUser.UserName;
+            lbName.Text = "Welcome "+ globalUser.currentUser.UserName;
             pbImage.Image = Image.FromStream(globalUser.currentUser.UserAvatar);
         }
        
@@ -60,6 +61,17 @@ namespace ResManage.Forms
         {
         
         }
-       
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmUserOption frm = new frmUserOption();
+            frm.Show();
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

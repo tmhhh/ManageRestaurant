@@ -51,6 +51,11 @@ namespace ResManage.forms
             Regist rfrm = new Regist();
             rfrm.Show();
         }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 
