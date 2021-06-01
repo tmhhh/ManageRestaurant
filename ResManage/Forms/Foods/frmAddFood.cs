@@ -151,6 +151,30 @@ namespace ResManage.Forms.Foods
             dashboard dashFrm = new dashboard();
             dashFrm.Show();
         }
+
+        private void button_WOC3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_WOC2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard frm = new dashboard();
+            frm.Show();
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard frm = new dashboard();
+            frm.Show();
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     #endregion
 }

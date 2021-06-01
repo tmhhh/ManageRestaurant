@@ -96,7 +96,16 @@ namespace ResManage.Forms.UserInfo
             loadUser();
         }
 
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-       
+        private void button_WOC2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmUserOption frm = new frmUserOption();
+            frm.Show();
+        }
     }
 }

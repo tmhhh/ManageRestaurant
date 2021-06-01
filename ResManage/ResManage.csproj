@@ -57,7 +57,7 @@
     <Compile Include="DAO\scheduleDB.cs" />
     <Compile Include="DAO\tableDB.cs" />
     <Compile Include="DAO\UsersDB.cs" />
-    <Compile Include="DAO\dailyWaveDB.cs" />
+    <Compile Include="DAO\dailyWageDB.cs" />
     <Compile Include="DAO\workingDB.cs" />
     <Compile Include="Forms\dashboard.cs">
       <SubType>Form</SubType>
@@ -70,12 +70,6 @@
     </Compile>
     <Compile Include="Forms\Foods\frmAddFood.Designer.cs">
       <DependentUpon>frmAddFood.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Foods\frmEditDelete.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Foods\frmEditDelete.Designer.cs">
-      <DependentUpon>frmEditDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCheckIn.cs">
       <SubType>Form</SubType>
@@ -162,9 +156,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foods\frmAddFood.resx">
       <DependentUpon>frmAddFood.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Foods\frmEditDelete.resx">
-      <DependentUpon>frmEditDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCheckIn.resx">
       <DependentUpon>frmCheckIn.cs</DependentUpon>

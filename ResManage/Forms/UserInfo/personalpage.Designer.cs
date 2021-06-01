@@ -44,15 +44,19 @@ namespace ResManage.Forms.UserInfo
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.Avatar = new System.Windows.Forms.PictureBox();
             this.BackBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.closeBtn = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC2 = new ePOSOne.btnProduct.Button_WOC();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInfo
             // 
-            this.panelInfo.BackColor = System.Drawing.Color.Ivory;
+            this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panelInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelInfo.Controls.Add(this.button_WOC2);
             this.panelInfo.Controls.Add(this.BackBtn);
+            this.panelInfo.Controls.Add(this.closeBtn);
             this.panelInfo.Controls.Add(this.button_IMG);
             this.panelInfo.Controls.Add(this.label5);
             this.panelInfo.Controls.Add(this.label4);
@@ -208,16 +212,57 @@ namespace ResManage.Forms.UserInfo
             this.BackBtn.ButtonColor = System.Drawing.Color.Transparent;
             this.BackBtn.FlatAppearance.BorderSize = 0;
             this.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackBtn.Location = new System.Drawing.Point(476, -2);
+            this.BackBtn.Location = new System.Drawing.Point(-233, 2);
+            this.BackBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.BackBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
             this.BackBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
-            this.BackBtn.Size = new System.Drawing.Size(56, 53);
-            this.BackBtn.TabIndex = 18;
+            this.BackBtn.Size = new System.Drawing.Size(35, 36);
+            this.BackBtn.TabIndex = 33;
             this.BackBtn.TextColor = System.Drawing.Color.White;
             this.BackBtn.UseVisualStyleBackColor = true;
-            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.closeBtn.BackgroundImage = global::ResManage.Properties.Resources.xclose;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.closeBtn.BorderColor = System.Drawing.Color.Transparent;
+            this.closeBtn.ButtonColor = System.Drawing.Color.Transparent;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(495, 2);
+            this.closeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.closeBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.closeBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.closeBtn.Size = new System.Drawing.Size(33, 22);
+            this.closeBtn.TabIndex = 32;
+            this.closeBtn.TextColor = System.Drawing.Color.White;
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // button_WOC2
+            // 
+            this.button_WOC2.BackgroundImage = global::ResManage.Properties.Resources.back;
+            this.button_WOC2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_WOC2.BorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC2.ButtonColor = System.Drawing.Color.Transparent;
+            this.button_WOC2.FlatAppearance.BorderSize = 0;
+            this.button_WOC2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC2.Location = new System.Drawing.Point(2, -2);
+            this.button_WOC2.Margin = new System.Windows.Forms.Padding(2);
+            this.button_WOC2.Name = "button_WOC2";
+            this.button_WOC2.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.button_WOC2.OnHoverButtonColor = System.Drawing.Color.Transparent;
+            this.button_WOC2.OnHoverTextColor = System.Drawing.Color.Transparent;
+            this.button_WOC2.Size = new System.Drawing.Size(33, 26);
+            this.button_WOC2.TabIndex = 34;
+            this.button_WOC2.TextColor = System.Drawing.Color.White;
+            this.button_WOC2.UseVisualStyleBackColor = true;
+            this.button_WOC2.Click += new System.EventHandler(this.button_WOC2_Click);
             // 
             // personalpage
             // 
@@ -254,7 +299,9 @@ namespace ResManage.Forms.UserInfo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private ePOSOne.btnProduct.Button_WOC BackBtn;
         private ePOSOne.btnProduct.Button_WOC button_IMG;
+        private ePOSOne.btnProduct.Button_WOC BackBtn;
+        private ePOSOne.btnProduct.Button_WOC closeBtn;
+        private ePOSOne.btnProduct.Button_WOC button_WOC2;
     }
 }

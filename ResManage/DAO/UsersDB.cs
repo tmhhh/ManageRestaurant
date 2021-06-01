@@ -163,7 +163,7 @@ namespace RestaurantManagement.DAO
         }
         public static bool UpdateUserInEmp(int uid, string uname, DateTime uBD, MemoryStream pic)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE Users set userName=@userName, userBirthDate=@userBD, userAvatar=@pic where userID=@uID", MyDB.getConnection());
+            SqlCommand cmd = new SqlCommand("UPDATE Users set userName=@userName, userBirthDate=@userBD, userPic=@pic where userID=@uID", MyDB.getConnection());
             cmd.Parameters.Add("@uID", SqlDbType.Int).Value = uid;
             cmd.Parameters.Add("@userName", SqlDbType.VarChar).Value = uname;
             cmd.Parameters.Add("@userBD", SqlDbType.Date).Value =uBD;

@@ -53,5 +53,17 @@ namespace ResManage.Forms.UserInfo
                 MessageBox.Show("You are not allow to use this action !!!");
             }
         }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard frm = new dashboard();
+            frm.Show();
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

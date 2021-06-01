@@ -33,24 +33,32 @@ namespace ResManage.Forms
         }
         void drawChart()
         {
-            string month = dateTimePickerTo.Value.Month.ToString();
+            string month = dateTimePickerFrom.Value.Month.ToString();
             string monnthRevenue = calculateRevenue().ToString();
-            chartRev.Series["revenue"].Points.AddXY(month + " " + monnthRevenue, monnthRevenue);
+            chartRev.Series["revenue"].Points.AddXY("Month: "+month , monnthRevenue);
+
         }
         private void ShowBtn_Click(object sender, EventArgs e)
         {
             DateTime checkin = dateTimePickerFrom.Value;
             DateTime checkout = dateTimePickerTo.Value;
-            loadListBillByDate(checkin,checkout);
+            loadListBillByDate(checkin, checkout);
             textBoxRevenue.Text = calculateRevenue().ToString("c");
             drawChart();
         }
 
-        private void BackBtn_Click(object sender, EventArgs e)
+   
+
+        private void BackBtn_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             dashboard dashboardFrm = new dashboard();
             dashboardFrm.Show();
+        }
+
+        private void button_WOC1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

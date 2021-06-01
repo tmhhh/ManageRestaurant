@@ -27,7 +27,7 @@ namespace ResManage.DAO
         }
         public static DataTable workingTime(DateTime from, DateTime to)
         {
-            string sql = "select sum(totalWorkingTime) as TotalTime ,userID from DailyWave where waveDate BETWEEN '" + from + "' AND '" + to + "' group by userID";
+            string sql = "select sum(totalWorkingTime) as TotalTime ,userID from DailyWage where wageDate BETWEEN '" + from + "' AND '" + to + "' group by userID";
             return MyDB.ExecuteQuery(sql);
 
 

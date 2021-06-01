@@ -335,13 +335,13 @@ namespace ResManage.Forms
             this.closeBtn.ButtonColor = System.Drawing.Color.Transparent;
             this.closeBtn.FlatAppearance.BorderSize = 0;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Location = new System.Drawing.Point(800, 0);
+            this.closeBtn.Location = new System.Drawing.Point(798, 0);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.closeBtn.OnHoverButtonColor = System.Drawing.Color.Transparent;
             this.closeBtn.OnHoverTextColor = System.Drawing.Color.Transparent;
-            this.closeBtn.Size = new System.Drawing.Size(31, 37);
+            this.closeBtn.Size = new System.Drawing.Size(33, 37);
             this.closeBtn.TabIndex = 25;
             this.closeBtn.TextColor = System.Drawing.Color.White;
             this.closeBtn.UseVisualStyleBackColor = false;

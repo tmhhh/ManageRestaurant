@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace ResManage.DAO
 {
-    class dailyWaveDB
+    class dailyWageDB
     {
-        public static DataTable waveCalculate()
+        public static DataTable wageCalculate()
         {
             //MyDB.openConnection();
-            SqlCommand sql = new SqlCommand("Exec USP_WaveCalculate", MyDB.getConnection());
+            SqlCommand sql = new SqlCommand("Exec USP_WageCalculate", MyDB.getConnection());
             MyDB.openConnection();
             sql.ExecuteNonQuery();
-            sql = new SqlCommand("Select * from DailyWave", MyDB.getConnection());
+            sql = new SqlCommand("Select * from DailyWage", MyDB.getConnection());
             SqlDataAdapter da = new SqlDataAdapter(sql);
             DataTable dt = new DataTable();
             da.Fill(dt);

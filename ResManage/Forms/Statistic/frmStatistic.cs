@@ -47,5 +47,17 @@ namespace ResManage.Forms.Statistic
                 MessageBox.Show("Please choose your option !!!");
             }
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard frm = new dashboard();
+            frm.Show();
+        }
     }
 }
