@@ -25,7 +25,8 @@ namespace ResManage.Forms.Foods
         void loadCate()
         {
             cbCate.DataSource = cateDB.getListCate();
-           
+            dgvCat.DataSource = cateDB.getListCate();
+            dgvCat.Columns[0].Visible = false;
             cbCate.DisplayMember = "catName";
             cbCate.ValueMember = "catID";
 
@@ -174,6 +175,75 @@ namespace ResManage.Forms.Foods
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void addCatBtn_Click(object sender, EventArgs e)
+        {
+            string catName = textBoxCatname.Text;
+            if (cateDB.addCat(catName))
+            {
+                MessageBox.Show("Added");
+                loadCate();
+            }
+            else
+            {
+                MessageBox.Show("Failed");
+            }
+        }
+        int catID = 0;
+        private void dgvCat_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            catID = (int)dgvCat.CurrentRow.Cells[0].Value;
+            txtBoxNewName.Text = dgvCat.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void updateCatBtn_Click(object sender, EventArgs e)
+        {
+            if (cateDB.editCat(catID,txtBoxNewName.Text))
+            {
+                MessageBox.Show("Updated");
+                loadCate();
+            }
+            else
+            {
+                MessageBox.Show("Failed");
+            }
+        }
+
+        private void resetCatBtn_Click(object sender, EventArgs e)
+        {
+            textBoxCatname.Text = "";
+        }
+
+        private void resetBtn2_Click(object sender, EventArgs e)
+        {
+            catID = 0;
+            txtBoxNewName.Text = "";
+        }
+
+        private void button_WOC4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard frm = new dashboard();
+            frm.Show();
+        }
+
+        private void button_WOC5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonCatDel_Click(object sender, EventArgs e)
+        {
+            if (cateDB.deleteCat(catID))
+            {
+                MessageBox.Show("Deleted");
+                loadCate();
+            }
+            else
+            {
+                MessageBox.Show("Failed");
+            }
         }
     }
     #endregion

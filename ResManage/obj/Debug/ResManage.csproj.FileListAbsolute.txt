@@ -80,7 +80,6 @@ C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\bin\Debug\ResManage.pdb
 C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.csprojAssemblyReference.cache
 C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.Forms.dashboard.resources
 C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.Forms.Foods.frmAddFood.resources
-C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.Forms.Foods.frmEditDelete.resources
 C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.Forms.frmCheckIn.resources
 C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.forms.frmLogIn.resources
 C:\Users\pc\Desktop\aaaa\ManageRestaurant\ResManage\obj\Debug\ResManage.Forms.frmMain.resources

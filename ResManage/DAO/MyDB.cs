@@ -10,8 +10,8 @@ namespace RestaurantManagement.DAO
 {
      class MyDB
     {
-        static string connectionSTR = "Data Source=DESKTOP-2D34GU3;Initial Catalog=RestaurantManagement;Integrated Security=True";
-        //static string connectionSTR = "Data Source=DESKTOP-SU5P5JE;Initial Catalog=RestaurantManagement;Integrated Security=True";
+        //static string connectionSTR = "Data Source=DESKTOP-2D34GU3;Initial Catalog=RestaurantManagement;Integrated Security=True";
+        static string connectionSTR = "Data Source=DESKTOP-SU5P5JE;Initial Catalog=RestaurantManagement;Integrated Security=True";
         static SqlConnection con = new SqlConnection(connectionSTR);
         public static SqlConnection getConnection()
         {
