@@ -19,28 +19,26 @@ namespace ResManage.Forms.Statistic
         }
         string pickedTime = "";
         string foodName = "";
+        void drawChart(int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                pickedTime = gvResult.Rows[i].Cells[0].Value?.ToString();
+                foodName = gvResult.Rows[i].Cells[1].Value?.ToString();
+                chartFavorite.Series["favorite"].Points.AddXY(foodName + " " + pickedTime, pickedTime);
+            }
+        }
         private void btnShow_Click(object sender, EventArgs e)
         {
             if (rdByDay.Checked)
             {
                 gvResult.DataSource=billInfoDB.getFavoriteDishInDay(dtDate.Value);
-                for (int i = 0; i < gvResult.Rows.Count; i++)
-                {
-                    pickedTime = gvResult.Rows[i].Cells[0].Value?.ToString();
-                    foodName = gvResult.Rows[i].Cells[1].Value?.ToString();
-                    chartFavorite.Series["favorite"].Points.AddXY(foodName + " " + pickedTime, pickedTime);
-                }
+                drawChart(gvResult.RowCount);
             }
             else if (rdByMonth.Checked)
             {
                 gvResult.DataSource = billInfoDB.getFavoriteDishInMonth(dtDate.Value);
-                for (int i = 0; i < gvResult.Rows.Count; i++)
-                {
-                    pickedTime = gvResult.Rows[i].Cells[0].Value?.ToString();
-                    foodName = gvResult.Rows[i].Cells[1].Value?.ToString();
-                    chartFavorite.Series["favorite"].Points.AddXY(foodName + " " + pickedTime, pickedTime);
-                }
-
+                drawChart(gvResult.RowCount);
             }
             else
             {
