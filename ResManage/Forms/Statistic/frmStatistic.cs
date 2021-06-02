@@ -28,16 +28,25 @@ namespace ResManage.Forms.Statistic
                 chartFavorite.Series["favorite"].Points.AddXY(foodName + " " + pickedTime, pickedTime);
             }
         }
+        void resetChart()
+        {
+            foreach(var serie in chartFavorite.Series)
+            {
+                serie.Points.Clear();
+            }
+        }
         private void btnShow_Click(object sender, EventArgs e)
         {
             if (rdByDay.Checked)
             {
                 gvResult.DataSource=billInfoDB.getFavoriteDishInDay(dtDate.Value);
+                resetChart();
                 drawChart(gvResult.RowCount);
             }
             else if (rdByMonth.Checked)
             {
                 gvResult.DataSource = billInfoDB.getFavoriteDishInMonth(dtDate.Value);
+                resetChart();
                 drawChart(gvResult.RowCount);
             }
             else
